@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -12,6 +14,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { TodoService } from './services/todo.service';
+
+
 const ROUTES = [
   { path: '', component: HomePageComponent },
   { path: 'tasks', component: TaskListPageComponent },
@@ -19,21 +24,21 @@ const ROUTES = [
   { path: '**', component: PageNotFoundComponent }
 ]
 
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomePageComponent,
-    TaskListPageComponent,
-    TaskEditPageComponent,
-    PageNotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgbModule.forRoot(),
-    RouterModule.forRoot(ROUTES),
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+ declarations: [
+   AppComponent,
+   HomePageComponent,
+   TaskListPageComponent,
+   TaskEditPageComponent,
+   PageNotFoundComponent
+ ],
+ imports: [
+   BrowserModule,
+   NgbModule.forRoot(),
+   RouterModule.forRoot(ROUTES)
+ ],
+ providers: [TodoService,FormBuilder],
+ bootstrap: [AppComponent]
 })
 export class AppModule { }
