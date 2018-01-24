@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -36,9 +36,10 @@ const ROUTES = [
  imports: [
    BrowserModule,
    NgbModule.forRoot(),
-   RouterModule.forRoot(ROUTES)
+   RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule
  ],
- providers: [TodoService,FormBuilder],
+ providers: [TodoService],
  bootstrap: [AppComponent]
 })
 export class AppModule { }

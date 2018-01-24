@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Edit Task</h2>
-  <form (FormGroup)="todoForm" (submit)="onSubmit()" novalidate>
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" novalidate>
     <div class="form-group">
       <label for="description">Description</label>
       <input type="text" class="form-control" id="description" formControlName="description" required>

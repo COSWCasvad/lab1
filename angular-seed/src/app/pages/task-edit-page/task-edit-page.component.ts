@@ -4,7 +4,7 @@ import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/todo';
 import { Router } from '@angular/router';
 
-import { FormGroup, FormBuilder,ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-task-edit-page',
@@ -13,7 +13,7 @@ import { FormGroup, FormBuilder,ReactiveFormsModule } from '@angular/forms';
   
 })
 export class TaskEditPageComponent implements OnInit {
-    public todoForm: FormGroup;
+    private todoForm: FormGroup;
     constructor(
         public todoService: TodoService,
         public formBuilder: FormBuilder,
@@ -21,6 +21,15 @@ export class TaskEditPageComponent implements OnInit {
       ) {
 
       }
+
+      ngOnInit() {
+    this.todoForm = this.formBuilder.group({
+      description: '',
+      completed: '',
+      priority: ''
+    });
+  }
+
 
     onSubmit() {
         this.todoService.create(
@@ -32,12 +41,6 @@ export class TaskEditPageComponent implements OnInit {
         this.router.navigate(['/tasks']);
     }
 
-  ngOnInit() {
-    this.todoForm = this.formBuilder.group({
-      description: '',
-      completed: '',
-      priority: ''
-    });
-  }
+  
 
 }
