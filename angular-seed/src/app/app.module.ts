@@ -51,6 +51,7 @@ const ROUTES = [
 
 @NgModule({
  declarations: [
+   SignInPageComponent,
    AppComponent,
    HomePageComponent,
    TaskListPageComponent,
