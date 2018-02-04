@@ -7,12 +7,12 @@ import { AppConfiguration } from './../common/config/app-configuration.service';
 
 @Injectable()
 export class UsersService extends APIService {
-constructor(
-    public config: AppConfiguration,
-    public authService: AuthService,
-    public http: Http
-  ) {
-    super(config, authService, http);
+    public config: AppConfiguration;
+    public authService: AuthService;
+    public http: Http;
+
+    constructor( ) {
+    super(this.config, this.authService, this.http);
   }
 
   login(username: string, password: string) {
