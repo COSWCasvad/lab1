@@ -27,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodoService } from './services/todo.service';
 
 import { AuthService } from './common/auth.service';
+import { AppDataService } from './common/app-data.service';
 
 import { APIService } from './common/api.service';
 import { UsersService } from './services/users.service';
@@ -65,7 +66,7 @@ const ROUTES = [
    RouterModule.forRoot(ROUTES),
     ReactiveFormsModule
  ],
- providers: [
+ providers: [AuthService,AppDataService,
  {
        provide: INITIAL_CONFIG,
        useValue: {
