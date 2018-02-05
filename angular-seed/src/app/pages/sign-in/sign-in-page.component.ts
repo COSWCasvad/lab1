@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
 
 
 export class SignInPageComponent implements OnInit {
-    public usersService: UsersService;
     public signInForm: FormGroup;
-    public router: Router;
     public loginError: string;
-  constructor() {
+
+
+  constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
     this.signInForm = new FormGroup({
         username: new FormControl(),
         password: new FormControl()

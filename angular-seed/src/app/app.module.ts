@@ -66,7 +66,7 @@ const ROUTES = [
    RouterModule.forRoot(ROUTES),
     ReactiveFormsModule
  ],
- providers: [AuthService,AppDataService,
+ providers: [UsersService,AuthService,AppDataService,
  {
        provide: INITIAL_CONFIG,
        useValue: {
