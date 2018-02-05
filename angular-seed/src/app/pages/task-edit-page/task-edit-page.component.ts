@@ -36,9 +36,13 @@ export class TaskEditPageComponent implements OnInit {
         this.todoForm.get('description').value,
         this.todoForm.get('priority').value,
         Boolean(this.todoForm.get('completed').value)
-        );
+        ).subscribe(response => {
+        this.router.navigate(['tasks']);
+      }, error => {
+        console.log('Error Posting in: ' + (error && error.message ? error.message : ''));
+      })
 
-        this.router.navigate(['/tasks']);
+        //this.router.navigate(['/tasks']);
     }
 
   

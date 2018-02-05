@@ -20,7 +20,7 @@ constructor(
   post(url: string, body: any, options?: any): Observable<any> {
     return this.http
       .post(`${this.config.apiURL}/${url}`, body, this.getRequestOptions(options))
-      .map(this.extractData)
+      .map(this.extractData2)
       .catch(this.handleError);
   }
 
@@ -45,6 +45,10 @@ constructor(
   }
 
   private extractData(res: Response) {
+    return res.json();
+  }
+
+    private extractData2(res: Response) {
     return res.json();
   }
 

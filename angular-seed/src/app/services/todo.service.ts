@@ -12,12 +12,6 @@ import {Observable} from 'rxjs/Observable';
 export class TodoService extends APIService{
 
     private resourceUrl: string = 'api/todo';
-    private todos: Todo[] = [
-      new Todo('todo 1'),
-      new Todo('todo 2', 1, true),
-      new Todo('todo 3')
-    ];
-    private apiS: APIService;
 
     constructor(
         public config: AppConfiguration,
@@ -31,9 +25,9 @@ export class TodoService extends APIService{
     return this.get(this.resourceUrl);
   }
 
-    create(description: string, priority: Number = 1, completed: boolean = false):void{
-        this.todos.push(new Todo(description,priority,completed));
-        this.apiS.post(this.resourceUrl,new Todo(description,priority,completed));
+    create(description: string, priority: Number = 1, completed: boolean = false) {
+    return this.post(this.resourceUrl,new Todo(description,priority,completed));
+
 
     }
 
