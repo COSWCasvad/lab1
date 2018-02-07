@@ -8,12 +8,12 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="/" routerLink="/">Home</a>
+        <a *ngIf="isLoggedIn()" class="nav-link" routerLinkActive="/" routerLink="/">Home</a>
       </li>
-      <li class="nav-item">
+      <li  *ngIf="isLoggedIn()" class="nav-item">
         <a class="nav-link" routerLinkActive="/tasks" routerLink="/tasks">Tasks</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="isLoggedIn()" class="nav-item">
         <a class="nav-link" routerLinkActive="/edit" routerLink="/edit">Edit</a>
       </li>
       <li *ngIf="isLoggedIn()" class="nav-item">
@@ -22,7 +22,6 @@
     </ul>
   </div>
 </nav>
-
 <div class="container">
   <router-outlet></router-outlet>
 </div>

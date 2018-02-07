@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {AppComponent} from '../../app.component'
 import { UsersService } from '../../services/users.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class SignInPageComponent implements OnInit {
     public loginError: string;
 
 
-  constructor(public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
+  constructor(public appComponent: AppComponent,public formBuilder:FormBuilder,public usersService: UsersService,public router: Router) {
     this.signInForm = new FormGroup({
         username: new FormControl(),
         password: new FormControl()
@@ -35,6 +35,10 @@ export class SignInPageComponent implements OnInit {
       })
   }
 
+  
+  isLoggedIn() {
+    return this.appComponent.isLoggedIn();
+  }
 
     ngOnInit() {
 

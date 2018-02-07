@@ -19,7 +19,7 @@ export class AppComponent {
   }
 
   isLoggedIn() {
-    //*ngIf="!isLoggedIn()";
+    console.log(this.authService.isLoggedIn());
     return this.authService.isLoggedIn();
   }
 
